@@ -3,7 +3,7 @@ import { Layout } from "../components/base/layout";
 export function SignUp()
 {
     return (
-        <Layout>
+        <Layout title="Sign Up">
             SignUp
         </Layout>
     )

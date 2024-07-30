@@ -5,7 +5,7 @@ import { CUSTOMERS_DATA } from "../data/customers";
 export function HomePage()
 {
     return (
-        <Layout>
+        <Layout title="Welcome to Seacode">
             <BarChartComponent chartData={CUSTOMERS_DATA} />
         </Layout>
     )

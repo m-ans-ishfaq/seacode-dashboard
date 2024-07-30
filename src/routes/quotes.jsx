@@ -14,7 +14,7 @@ export function Quotes()
     );
 
     return (
-        <Layout>
+        <Layout title="Quotes">
             <div className="space-y-4">
                 {data.map(({q, a}, i) => (
                     <p>{q} ~ {a}</p>
