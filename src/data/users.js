@@ -1,3 +1,5 @@
+import { v4 as id } from "uuid";
+
 export const USERS_DATA = [
     { id: id(), username: 'johndoe', password: 'johndoepass' },
     { id: id(), username: 'janedoe', password: 'janedoepass' },

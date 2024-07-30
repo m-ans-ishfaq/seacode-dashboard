@@ -1,5 +1,6 @@
 import { Header } from "./header";
 import { SideBar } from "./sidebar";
+import { Toaster } from "@/components/ui/toaster"
 
 export function Layout({ title, children })
 {
@@ -14,6 +15,7 @@ export function Layout({ title, children })
                     </div>
                 </div>
             </main>
+            <Toaster />
         </>
     )
 }

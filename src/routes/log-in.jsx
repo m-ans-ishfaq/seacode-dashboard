@@ -12,7 +12,9 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Layout } from "../components/base/layout"
+import { toast } from "@/components/ui/use-toast"
 import { z } from "zod"
+import { useUsers } from "../hooks/useUsers";
 
 const FormSchema = z.object({
     username: z.string().min(2, {
@@ -30,9 +32,23 @@ export function LogIn() {
             username: "", password: ""
         },
     });
+    const { logIn } = useUsers();
 
     function onSubmit(data) {
-        console.log(data);
+        
+        const loginSuccess = logIn(data.username, data.password);
+
+        if (loginSuccess) { 
+            toast({
+                title: "Log In Successfull as " + data.username
+            });
+        } else {
+            toast({
+                title: "Log In Failed !",
+                variant: "destructive"
+            });
+        }
+
     }
 
     return (
