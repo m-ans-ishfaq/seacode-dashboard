@@ -1,6 +1,10 @@
+import { Layout } from "../components/base/layout";
+
 export function Quotes()
 {
     return (
-        <>Quotes</>
+        <Layout>
+            Quotes
+        </Layout>
     )
 }

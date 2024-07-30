@@ -1,6 +1,10 @@
+import { Layout } from "../components/base/layout";
+
 export function SignUp()
 {
     return (
-        <>SignUp</>
+        <Layout>
+            SignUp
+        </Layout>
     )
 }

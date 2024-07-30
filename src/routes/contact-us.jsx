@@ -1,6 +1,10 @@
+import { Layout } from "../components/base/layout";
+
 export function ContactUs()
 {
     return (
-        <>Contact Us</>
+        <Layout>
+            Contact Us
+        </Layout>
     )
 }

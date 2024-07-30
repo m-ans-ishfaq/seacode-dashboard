@@ -1,6 +1,10 @@
+import { Layout } from "../components/base/layout";
+
 export function Users()
 {
     return (
-        <>Users</>
+        <Layout>
+            Users
+        </Layout>
     )
 }
