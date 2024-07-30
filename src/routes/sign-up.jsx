@@ -13,6 +13,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Layout } from "../components/base/layout"
 import { z } from "zod"
+import { useUsers } from "../hooks/useUsers"
+import { toast } from "@/components/ui/use-toast"
 
 const FormSchema = z.object({
     username: z.string().min(2, {
@@ -31,13 +33,28 @@ export function SignUp() {
             username: "", password: "", email: ""
         },
     });
+    const { addUser } = useUsers();
 
     function onSubmit(data) {
-        console.log(data);
+        
+        const addSuccess = addUser(data.username, data.password);
+
+        if (addSuccess) { 
+            toast({
+                title: "Registration Successful"
+            });
+            form.reset();
+        } else {
+            toast({
+                title: "Registration failed ! User already exists !",
+                variant: "destructive"
+            });
+        }
+
     }
 
     return (
-        <Layout title="Log In">
+        <Layout title="Sign Up">
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="dark w-2/3 space-y-6">
                     <FormField
@@ -63,7 +80,7 @@ export function SignUp() {
                             <FormItem>
                                 <FormLabel>Email</FormLabel>
                                 <FormControl>
-                                    <Input type="email" placeholder="john@gmail.com" {...field} />
+                                    <Input autoComplete="off" type="email" placeholder="john@gmail.com" {...field} />
                                 </FormControl>
                                 <FormDescription>
                                     This is your public display email.

@@ -1,5 +1,6 @@
 import { USERS_DATA } from "../data/users"
 import { createContext, useContext, useState } from "react";
+import { v4 as id } from "uuid";
 
 const UsersContext = createContext({
     users: USERS_DATA,
@@ -22,7 +23,7 @@ export const UsersProvider = ({ children }) => {
             setLoggedInUser({ id: 1, username: "admin", password: "adminpass" });
             return true;
         }
-        
+
         const user = users.find(u => u.username === username && u.password === password);
 
         if (user) {
